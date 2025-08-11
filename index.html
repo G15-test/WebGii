@@ -1,41 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #fbeff5;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-        }
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan Pernikahan — Aprilia & Gifar</title>
+  <meta name="description" content="Undangan pernikahan bergaya klasik dengan motif bunga rose-pink." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <!-- Google Fonts untuk gaya kaligrafi & serif elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rose:#f6d7d9;
+      --accent:#b85b66;
+      --muted:#6b605a;
+      --card:#fff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Libre Baskerville', serif;
+      background: #f9eef0 url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=2d9a5f8f5b7f0a1d2d3e7a9b4c8f6c2a') center/cover no-repeat;
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:48px 20px;
+    }
+    .card{
+      max-width:820px;
+      margin:0 auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+      padding:40px 48px;
+      border-radius:12px;
+      box-shadow:0 12px 40px rgba(11,12,14,0.12);
+      border:1px solid rgba(184,91,102,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+    /* subtle floral corner decorations (SVG) */
+    .corner{
+      position:absolute;pointer-events:none;opacity:0.9;
+    }
+    .corner.top{top:-40px;left:50%;transform:translateX(-50%)}
+    .corner.bottom-left{bottom:-30px;left:-30px;transform:scale(0.9)}
+    .corner.bottom-right{bottom:-30px;right:-30px;transform:scale(1)}
+
+    .title{font-family:'Playfair Display', serif;color:var(--accent);font-size:34px;margin:8px 0 6px}
+    .subtitle{font-family:'Great Vibes', cursive;font-size:42px;color:var(--accent);margin:8px 0}
+    .salam{font-family:'Great Vibes',cursive;color:#8e5b64;font-size:20px;margin:10px 0 18px}
+
+    .intro{font-size:16px;line-height:1.9;margin:14px 0 26px}
+
+    .names{
+      display:flex;gap:24px;align-items:flex-end;justify-content:center;margin:18px 0 6px;flex-wrap:wrap
+    }
+    .name{
+      font-family:'Great Vibes',cursive;font-size:40px;color:#1f1622;border-bottom:1px solid rgba(31,22,34,0.08);padding:6px 20px;margin:0 6px
+    }
+    .name.small{font-size:34px}
+    .parents{font-size:13px;color:#7a6b67;margin-top:6px}
+
+    .section-title{font-family:'Playfair Display',serif;font-size:20px;margin:26px 0 10px;color:var(--accent)}
+
+    .akad{
+      display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin-top:6px
+    }
+    .akad .block{background:transparent;padding:6px}
+    .akad .left{text-align:left}
+    .akad .right{text-align:right}
+
+    .akad .label{font-weight:700;margin-bottom:6px}
+    .akad p{margin:6px 0;font-size:16px}
+
+    .note{font-size:15px;margin-top:22px;line-height:1.7;color:#6b605a}
+
+    .closing{margin-top:28px;font-style:italic;color:#6b605a}
+
+    .footer{margin-top:30px;text-align:center;font-size:14px;color:#6b605a}
+
+    /* responsive */
+    @media (max-width:700px){
+      .names{flex-direction:column;gap:6px}
+      .akad{grid-template-columns:1fr}
+      .card{padding:28px}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="Merah Muda Pastel Lucu Undangan Pernikahan Virtual(1).png" alt="Undangan Pernikahan">
-        <div class="footer">
-            <p>© 2025 Aprilia Indah S & Gifjar Utama P.N</p>
-        </div>
+  <div class="card" role="main">
+    <!-- floral svg top center -->
+    <svg class="corner top" width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <g opacity="0.9" transform="translate(0,6)">
+        <path d="M110 0C135 0 160 12 174 32C188 52 196 82 165 97C134 112 90 110 68 93C46 76 36 34 60 20C84 6 94 0 110 0Z" fill="#f9dbe0"/>
+      </g>
+    </svg>
+
+    <div style="text-align:center">
+      <div class="title">Mohon Do'a Restu</div>
+      <div class="salam">Assalamu'alaikum wr. wb.</div>
+      <div class="intro">Dengan memohon rahmat &amp; ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami :</div>
     </div>
+
+    <div class="names" aria-hidden>
+      <div style="text-align:center">
+        <div class="name">Aprilia Indah S</div>
+        <div class="parents">Putri bapak Sahedin &amp; ibu Cicih R</div>
+      </div>
+
+      <div style="text-align:center">
+        <div class="name">&amp;</div>
+      </div>
+
+      <div style="text-align:center">
+        <div class="name">Gifar Utama P.N</div>
+        <div class="parents">Putra bapak Prayogi &amp; Ibu Jeane Y N</div>
+      </div>
+    </div>
+
+    <div class="section-title">Akad Nikah :</div>
+    <div class="akad" role="region" aria-label="Detail akad nikah">
+      <div class="block left">
+        <div class="label">Hari/Tanggal :</div>
+        <p>Selasa, 19 Agustus 2025</p>
+        <div class="label">Pukul :</div>
+        <p>09.00 WIB</p>
+      </div>
+
+      <div class="block right">
+        <div class="label">Tempat :</div>
+        <p>Kantor Urusan Agama (KUA)<br>Baleendah</p>
+      </div>
+    </div>
+
+    <div class="note">Untuk mengikuti sunnah Rasul-Mu<br>Membentuk keluarga yang Sakinah, Mawaddah, Warahmah.<br>Atas Do'a nya kami sampaikan Terima kasih.</div>
+
+    <div class="closing">Wassalamu'alaikum wr. wb.</div>
+
+    <div class="footer">Hormat kami :<br>Kel. Besar<br>Bapak Arin Achmin</div>
+
+    <!-- corners floral -->
+    <svg class="corner bottom-left" width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 100C40 80 60 60 90 55C120 50 150 65 160 90C170 115 140 120 110 110C80 100 40 120 20 100Z" fill="#f6d7d9" opacity="0.95"/>
+    </svg>
+
+    <svg class="corner bottom-right" width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M200 120C170 100 150 80 120 70C90 60 60 70 40 90C20 110 40 140 80 130C120 120 200 140 200 120Z" fill="#f5d0d3" opacity="0.95"/>
+    </svg>
+
+  </div>
 </body>
 </html>
