@@ -24,3 +24,15 @@ body {
     font-size: 14px;
     color: #555;
 }
+@media (max-width:480px) {
+  body {
+    padding: 20px 10px;
+  }
+  .card {
+    padding: 24px 20px;
+  }
+  .title { font-size: 26px; }
+  .subtitle { font-size: 32px; }
+  .name { font-size: 32px; padding: 4px 12px; }
+  iframe { height: 220px; }
+}
