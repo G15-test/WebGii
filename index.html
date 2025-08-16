@@ -28,21 +28,22 @@
       border-radius:16px;
       box-shadow:0 12px 40px rgba(0,0,0,0.15);
       text-align:center;
+      animation: fadeIn 1.5s ease;
     }
-    .title{font-family:'Playfair Display', serif;color:var(--accent);font-size:34px;margin-bottom:8px}
+    .title{font-family:'Playfair Display', serif;color:var(--accent);font-size:34px;margin-bottom:8px;animation: slideDown 1.5s ease}
     .subtitle{font-family:'Great Vibes', cursive;font-size:42px;color:var(--accent);margin:8px 0}
-    .salam{font-family:'Great Vibes',cursive;color:#8e5b64;font-size:20px;margin:10px 0 18px}
-    .intro{font-size:16px;line-height:1.9;margin-bottom:26px}
-    .names{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-bottom:20px}
+    .salam{font-family:'Great Vibes',cursive;color:#8e5b64;font-size:20px;margin:10px 0 18px;animation: fadeInUp 2s ease}
+    .intro{font-size:16px;line-height:1.9;margin-bottom:26px;animation: fadeInUp 2s ease}
+    .names{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-bottom:20px;animation: zoomIn 2s ease}
     .name{font-family:'Great Vibes',cursive;font-size:40px;color:#1f1622;border-bottom:1px solid rgba(31,22,34,0.08);padding:6px 20px}
     .parents{font-size:13px;color:#7a6b67;margin-top:6px}
-    .section-title{font-family:'Playfair Display',serif;font-size:20px;margin:26px 0 10px;color:var(--accent)}
-    .akad{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left}
+    .section-title{font-family:'Playfair Display',serif;font-size:20px;margin:26px 0 10px;color:var(--accent);animation: fadeIn 2s ease}
+    .akad{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;animation: fadeInUp 2s ease}
     .label{font-weight:700;margin-bottom:6px}
     .akad p{margin:6px 0;font-size:16px}
-    .note{font-size:15px;margin-top:22px;line-height:1.7}
-    .closing{margin-top:28px;font-style:italic}
-    .footer{margin-top:30px;font-size:14px}
+    .note{font-size:15px;margin-top:22px;line-height:1.7;animation: fadeInUp 2.2s ease}
+    .closing{margin-top:28px;font-style:italic;animation: fadeInUp 2.4s ease}
+    .footer{margin-top:30px;font-size:14px;animation: fadeInUp 2.6s ease}
     .wa-contact{margin-top:18px;font-size:15px}
     .wa-contact a{color:var(--accent);text-decoration:none;font-weight:bold}
     .rsvp-button{margin-top:14px;display:inline-block;padding:10px 18px;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:bold;transition:background 0.3s}
@@ -52,10 +53,59 @@
       border-radius:12px;
       overflow:hidden;
       box-shadow:0 8px 20px rgba(0,0,0,0.15);
+      animation: fadeInUp 2s ease;
     }
     iframe{border:0;width:100%;height:300px}
     .rekening{margin-top:20px;font-size:15px;line-height:1.6;background:rgba(246,215,217,0.3);padding:12px;border-radius:8px}
     .rekening strong{color:var(--accent)}
+
+    /* Countdown */
+    .countdown{
+      margin:28px 0;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      font-family:'Playfair Display',serif;
+    }
+    .count-box{
+      background:var(--rose);
+      padding:12px 18px;
+      border-radius:12px;
+      min-width:70px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+    .count-box span{
+      display:block;
+      font-size:22px;
+      color:var(--accent);
+      font-weight:bold;
+    }
+    .count-box small{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* Music Button */
+    .music-control{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:var(--accent);
+      color:white;
+      padding:12px 16px;
+      border-radius:50%;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+      cursor:pointer;
+      font-size:18px;
+      z-index:1000;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {from{opacity:0}to{opacity:1}}
+    @keyframes slideDown {from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes fadeInUp {from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes zoomIn {from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
+
     @media (max-width:700px){.akad{grid-template-columns:1fr}}
   </style>
 </head>
@@ -75,6 +125,16 @@
         <div class="parents">Putra bapak Prayogi & Ibu Jeane Y N</div>
       </div>
     </div>
+
+    <!-- Countdown -->
+    <div class="section-title">Menuju Hari Bahagia</div>
+    <div class="countdown" id="countdown">
+      <div class="count-box"><span id="days">0</span><small>Hari</small></div>
+      <div class="count-box"><span id="hours">0</span><small>Jam</small></div>
+      <div class="count-box"><span id="minutes">0</span><small>Menit</small></div>
+      <div class="count-box"><span id="seconds">0</span><small>Detik</small></div>
+    </div>
+
     <div class="section-title">Akad Nikah :</div>
     <div class="akad">
       <div>
@@ -95,9 +155,55 @@
     <div class="closing">Wassalamu'alaikum wr. wb.</div>
     <div class="footer">Hormat kami :<br>Kel. Besar<br>Bapak Amin Achmin</div>
     <div class="wa-contact">Kontak WhatsApp: <a href="https://wa.me/6285161597429">+62 851-6159-7429</a></div>
-    
-    </div>
   </div>
+
+  <!-- Audio Player -->
+  <audio id="bg-music" loop>
+    <source src="marry-your-daughter.mp3" type="audio/mpeg">
+    Browser anda tidak mendukung audio.
+  </audio>
+  <div class="music-control" id="musicBtn">▶</div>
+
+  <script>
+    // Countdown
+    const targetDate = new Date("Aug 19, 2025 09:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if(distance < 0){
+        countdown.innerHTML = "<div>Acara telah dimulai 🎉</div>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+      const seconds = Math.floor((distance % (1000*60))/1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }, 1000);
+
+    // Music control
+    const music = document.getElementById("bg-music");
+    const musicBtn = document.getElementById("musicBtn");
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", () => {
+      if(isPlaying){
+        music.pause();
+        musicBtn.textContent = "▶";
+      } else {
+        music.play();
+        musicBtn.textContent = "⏸";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
 </body>
 </html>
-
